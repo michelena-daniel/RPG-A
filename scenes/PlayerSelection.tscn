@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjurrocqvrotx"]
+
+[ext_resource type="Script" path="res://scripts/player_creation.gd" id="1_koeem"]
+[ext_resource type="Theme" uid="uid://cqsyklancygo8" path="res://main_theme.tres" id="2_80uq3"]
+[ext_resource type="PackedScene" uid="uid://dlmu53u8s1bwv" path="res://scenes/CRTShader.tscn" id="3_e4uiq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_80uq3")
+script = ExtResource("1_koeem")
+
+[node name="NameContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 222.0
+offset_bottom = -876.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnterPlayerName" type="Label" parent="NameContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Enter your name:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="NameContainer/EnterPlayerName"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.122
+anchor_top = 2.594
+anchor_right = 0.912
+anchor_bottom = 4.469
+offset_left = 0.193996
+offset_top = -0.00800323
+offset_right = 0.0239563
+offset_bottom = -0.00801086
+
+[node name="ClassContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 429.0
+offset_right = 2.0
+offset_bottom = -639.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectPlayerClass" type="Label" parent="ClassContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Select your class:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="ClassContainer/SelectPlayerClass"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.14
+anchor_top = 3.094
+anchor_right = 0.895
+anchor_bottom = 5.469
+offset_left = -5.14
+offset_top = -0.00800323
+offset_right = -8.14502
+offset_bottom = -16.008
+item_count = 6
+popup/item_0/text = "Fighter"
+popup/item_0/id = 1
+popup/item_1/text = "Wizard"
+popup/item_1/id = 2
+popup/item_2/text = "Rogue"
+popup/item_2/id = 3
+popup/item_3/text = "Druid"
+popup/item_3/id = 4
+popup/item_4/text = "Nigromant"
+popup/item_4/id = 5
+popup/item_5/text = "Vampire"
+popup/item_5/id = 6
+
+[node name="ConfirmContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 689.0
+offset_right = 720.0
+offset_bottom = 836.0
+
+[node name="Confirm" type="Button" parent="ConfirmContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "CONFIRM"
+
+[node name="Back" type="Button" parent="ConfirmContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "BACK"
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_e4uiq")]
+
+[connection signal="pressed" from="ConfirmContainer/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="ConfirmContainer/Back" to="." method="_on_back_pressed"]

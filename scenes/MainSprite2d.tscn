@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp5gi0ayxb3un"]
+
+[ext_resource type="Texture2D" uid="uid://8gd3s8evbpu1" path="res://assets/sprites/magicballsprite.png" id="1_qqehk"]
+
+[sub_resource type="GDScript" id="GDScript_oisle"]
+script/source = "#extends Sprite2D
+#
+#var target_position: Vector2
+#var is_moving: bool = false
+#
+#func _ready():
+	#target_position = global_position
+	#set_process_input(true)
+#
+#func _input(event):
+	#if event is InputEventMouseButton and event.button_index == 1:
+		#if event.pressed:
+			#is_moving = true
+			#target_position = clamp_position(get_global_mouse_position())
+		#else:
+			#is_moving = false
+#
+#func _process(delta):
+	#if Input.is_mouse_button_pressed(1):
+		#is_moving = true
+		#target_position = clamp_position(get_global_mouse_position())
+	#else:
+		#is_moving = false
+#
+	#if is_moving:
+		#var speed = 400
+		#global_position = global_position.move_toward(target_position, speed * delta)
+		#
+#func clamp_position(pos: Vector2) -> Vector2:
+	#var background = get_node(\"../ParallaxBackground\")
+	#if background and background is ParallaxBackground:
+		#var background_size = get_background_size()
+		#var sprite_size = texture.get_size()
+		#var min_position = Vector2(sprite_size.x / 2, sprite_size.y / 2)
+		#var max_position = background_size - sprite_size / 2
+		#return pos.clamp(min_position, max_position)
+	#else:
+		#push_error(\"Background node not found or invalid!\")
+		#return pos
+#
+#func get_background_size() -> Vector2:
+	#var size = Vector2.ZERO
+	#var background = get_node(\"../ParallaxBackground\")
+	#if background:
+		#for layer in background.get_children():
+			#if layer is ParallaxLayer:
+				#for sprite in layer.get_children():
+					#if sprite is Sprite2D:
+						#var sprite_size = sprite.texture.get_size()
+						#var sprite_position = sprite.global_position  # Use global_position
+						#size.x = max(size.x, sprite_position.x + sprite_size.x)
+						#size.y = max(size.y, sprite_position.y + sprite_size.y)
+	#return size
+"
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_qqehk")
+script = SubResource("GDScript_oisle")

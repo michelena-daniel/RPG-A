@@ -1,0 +1,473 @@
+[gd_scene load_steps=34 format=3 uid="uid://rkaguymiiinb"]
+
+[ext_resource type="Theme" uid="uid://cqsyklancygo8" path="res://main_theme.tres" id="1_l1dx3"]
+[ext_resource type="Script" path="res://scripts/main_layout.gd" id="1_xnfee"]
+[ext_resource type="Texture2D" uid="uid://dkwcueo63ag7p" path="res://assets/borders/Dragonbun Item Borders - Pack 1/Dragonbun Item Borders - Pack 1/Dragonbun-ItemBorder15.png" id="3_dahfq"]
+[ext_resource type="Texture2D" uid="uid://q7uevw27470u" path="res://assets/images/Buttons/equipmentbutton2.png" id="4_lcp0c"]
+[ext_resource type="Texture2D" uid="uid://brcxi82okbjkp" path="res://assets/background/Parallax Forest Background (Seamless)/Parallax Forest Background (Seamless)/Parallax Forest Background - Blue/01_Mist.png" id="5_cn5ls"]
+[ext_resource type="Texture2D" uid="uid://cggm7a25m3wrw" path="res://assets/images/Buttons/bagicon.png" id="5_kg0if"]
+[ext_resource type="Texture2D" uid="uid://gqlin8o6myup" path="res://assets/background/Parallax Forest Background (Seamless)/Parallax Forest Background (Seamless)/Parallax Forest Background - Blue/10_Sky.png" id="6_dhq7s"]
+[ext_resource type="Texture2D" uid="uid://wy8vcyiatnwu" path="res://assets/images/Buttons/petsbutton.png" id="6_r28bm"]
+[ext_resource type="Texture2D" uid="uid://bg0rs25xcldhh" path="res://assets/background/Parallax Forest Background (Seamless)/Parallax Forest Background (Seamless)/Parallax Forest Background - Blue/02_Bushes.png" id="6_u5gp0"]
+[ext_resource type="PackedScene" uid="uid://dlmu53u8s1bwv" path="res://scenes/CRTShader.tscn" id="7_5lgwr"]
+[ext_resource type="Texture2D" uid="uid://cm6ct6niukl3g" path="res://assets/background/Parallax Forest Background (Seamless)/Parallax Forest Background (Seamless)/Parallax Forest Background - Blue/03_Particles.png" id="7_63oh3"]
+[ext_resource type="Texture2D" uid="uid://cntvn3c3umwjf" path="res://assets/background/Parallax Forest Background (Seamless)/Parallax Forest Background (Seamless)/Parallax Forest Background - Blue/04_Forest.png" id="8_wo8hg"]
+[ext_resource type="Texture2D" uid="uid://du8hpgacwo8kr" path="res://assets/background/Parallax Forest Background (Seamless)/Parallax Forest Background (Seamless)/Parallax Forest Background - Blue/05_Particles.png" id="9_cv3bk"]
+[ext_resource type="Texture2D" uid="uid://bkrmql2qcc1et" path="res://assets/background/Parallax Forest Background (Seamless)/Parallax Forest Background (Seamless)/Parallax Forest Background - Blue/06_Forest.png" id="10_l6lb5"]
+[ext_resource type="Texture2D" uid="uid://dper1wm4vljvv" path="res://assets/background/Parallax Forest Background (Seamless)/Parallax Forest Background (Seamless)/Parallax Forest Background - Blue/07_Forest.png" id="11_ld5te"]
+[ext_resource type="Texture2D" uid="uid://c3ke0bmn0ydh2" path="res://assets/background/Parallax Forest Background (Seamless)/Parallax Forest Background (Seamless)/Parallax Forest Background - Blue/08_Forest.png" id="12_f7ym5"]
+[ext_resource type="Texture2D" uid="uid://wb4ycs5qhro1" path="res://assets/background/Parallax Forest Background (Seamless)/Parallax Forest Background (Seamless)/Parallax Forest Background - Blue/09_Forest.png" id="13_5otqq"]
+[ext_resource type="Texture2D" uid="uid://8gd3s8evbpu1" path="res://assets/sprites/magicballsprite.png" id="14_l0ow0"]
+[ext_resource type="Script" path="res://scripts/Main-CharacterBody2D.gd" id="14_ykh7l"]
+[ext_resource type="Script" path="res://scripts/Main-Camera2D.gd" id="16_am85w"]
+[ext_resource type="Script" path="res://scripts/Modals.gd" id="21_42g2v"]
+[ext_resource type="Script" path="res://scripts/TransitionOverlay.gd" id="22_c6m63"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7sth"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.0352941, 0.0431373, 0.0352941, 1)
+shadow_size = 15
+shadow_offset = Vector2(10, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpe5h"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.0470588, 0.0392157, 0.0509804, 1)
+shadow_size = 20
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyvii"]
+radius = 34.7131
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of3ch"]
+size = Vector2(346, 2485)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y8af"]
+size = Vector2(3903, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kvgf"]
+size = Vector2(444, 2345)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy45a"]
+size = Vector2(4876, 151)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5p4i"]
+bg_color = Color(0, 0, 0, 0.694118)
+
+[sub_resource type="Animation" id="Animation_qmi5o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gx0bt"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dwtcg"]
+_data = {
+"RESET": SubResource("Animation_qmi5o"),
+"fade_in": SubResource("Animation_gx0bt")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l1dx3")
+script = ExtResource("1_xnfee")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NavTop" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/NavTop"]
+layout_mode = 0
+offset_right = 157.0
+offset_bottom = 150.0
+texture = ExtResource("3_dahfq")
+
+[node name="PlayerAvatar" type="TextureRect" parent="VBoxContainer/NavTop/NinePatchRect"]
+custom_minimum_size = Vector2(140, 130)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 148.0
+offset_bottom = -8.0
+grow_vertical = 2
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/NavTop"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 2.0
+offset_right = 716.0
+offset_bottom = 152.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7sth")
+
+[node name="PlayerName" type="Label" parent="VBoxContainer/NavTop/Panel"]
+layout_mode = 2
+offset_left = 38.0
+offset_top = 17.0
+offset_right = 265.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 20
+text = "Player Name"
+vertical_alignment = 1
+
+[node name="HeartContainer" type="HBoxContainer" parent="VBoxContainer/NavTop/Panel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 46.0
+offset_right = 283.0
+offset_bottom = 86.0
+theme_override_constants/separation = 10
+
+[node name="PlayerLevel" type="Label" parent="VBoxContainer/NavTop/Panel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 90.0
+offset_right = 265.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 20
+
+[node name="Center" type="Panel" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 1030)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rpe5h")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer/Center"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 705.0
+offset_bottom = 1010.0
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/Center/SubViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(690, 1000)
+render_target_update_mode = 4
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="VBoxContainer/Center/SubViewportContainer/SubViewport"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground/ParallaxLayer"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("6_dhq7s")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground/ParallaxLayer2"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("13_5otqq")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground/ParallaxLayer3"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("12_f7ym5")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground/ParallaxLayer4"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("11_ld5te")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground/ParallaxLayer5"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("10_l6lb5")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground/ParallaxLayer6"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("9_cv3bk")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground/ParallaxLayer7"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("8_wo8hg")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground/ParallaxLayer8"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("7_63oh3")
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground/ParallaxLayer9"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("6_u5gp0")
+
+[node name="ParallaxLayer10" type="ParallaxLayer" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/ParallaxBackground/ParallaxLayer10"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("5_cn5ls")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport"]
+position = Vector2(680, 500)
+motion_mode = 1
+script = ExtResource("14_ykh7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/CharacterBody2D"]
+shape = SubResource("CircleShape2D_lyvii")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/CharacterBody2D"]
+texture = ExtResource("14_l0ow0")
+
+[node name="Camera2D" type="Camera2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/CharacterBody2D"]
+limit_left = 345
+limit_top = 0
+limit_right = 3495
+limit_bottom = 1660
+limit_smoothed = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+script = ExtResource("16_am85w")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/LeftBoundary"]
+position = Vector2(170, 1057.5)
+shape = SubResource("RectangleShape2D_of3ch")
+
+[node name="TopBoundary" type="StaticBody2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/TopBoundary"]
+position = Vector2(1941.5, -2)
+shape = SubResource("RectangleShape2D_1y8af")
+
+[node name="RightBoundary" type="StaticBody2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/RightBoundary"]
+position = Vector2(3722, 1162.5)
+shape = SubResource("RectangleShape2D_8kvgf")
+
+[node name="BottomBoundary" type="StaticBody2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Center/SubViewportContainer/SubViewport/BottomBoundary"]
+position = Vector2(2428, 1707.5)
+shape = SubResource("RectangleShape2D_uy45a")
+
+[node name="BottomNav" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Return" type="Button" parent="VBoxContainer/BottomNav"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.806
+anchor_top = 0.16
+anchor_right = 0.971
+anchor_bottom = 0.71
+offset_left = -0.320068
+offset_right = -0.119995
+text = "Back
+"
+
+[node name="Equipment" type="TextureButton" parent="VBoxContainer/BottomNav"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 1.0
+offset_right = 109.0
+offset_bottom = 91.0
+texture_normal = ExtResource("4_lcp0c")
+
+[node name="Inventory" type="TextureButton" parent="VBoxContainer/BottomNav"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 1.0
+offset_right = 220.0
+offset_bottom = 91.0
+texture_normal = ExtResource("5_kg0if")
+
+[node name="Pets" type="TextureButton" parent="VBoxContainer/BottomNav"]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 1.0
+offset_right = 340.0
+offset_bottom = 91.0
+texture_normal = ExtResource("6_r28bm")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("7_5lgwr")]
+
+[node name="Modals" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+script = ExtResource("21_42g2v")
+
+[node name="GridOverlay" type="Panel" parent="Modals"]
+visible = false
+custom_minimum_size = Vector2(600, 600)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q5p4i")
+
+[node name="Label" type="Label" parent="Modals/GridOverlay"]
+layout_mode = 0
+offset_top = -44.0
+offset_right = 143.0
+offset_bottom = -3.0
+theme = ExtResource("1_l1dx3")
+text = "PETS"
+
+[node name="ItemsGrid" type="GridContainer" parent="Modals/GridOverlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.098
+anchor_top = 0.077
+anchor_right = 0.917
+anchor_bottom = 0.848
+offset_left = -9.8
+offset_top = -3.2
+offset_right = -1.20001
+offset_bottom = 37.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 180
+theme_override_constants/v_separation = 180
+columns = 3
+
+[node name="CloseGrid" type="Button" parent="Modals/GridOverlay"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_l1dx3")
+text = "CLOSE"
+
+[node name="TransitionOverlay" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_c6m63")
+
+[node name="FadeRect" type="ColorRect" parent="TransitionOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionOverlay"]
+libraries = {
+"": SubResource("AnimationLibrary_dwtcg")
+}
+
+[node name="Label" type="Label" parent="TransitionOverlay"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.153
+anchor_top = 0.391
+anchor_right = 0.847
+anchor_bottom = 0.469
+offset_left = -0.160011
+offset_top = -0.480042
+offset_right = 0.159973
+offset_bottom = -0.320007
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "FOREST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/BottomNav/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="VBoxContainer/BottomNav/Equipment" to="Modals" method="_on_grid_pressed" binds= ["equipment"]]
+[connection signal="pressed" from="VBoxContainer/BottomNav/Inventory" to="Modals" method="_on_grid_pressed" binds= ["inventory"]]
+[connection signal="pressed" from="VBoxContainer/BottomNav/Pets" to="Modals" method="_on_grid_pressed" binds= ["pets"]]
+[connection signal="pressed" from="Modals/GridOverlay/CloseGrid" to="." method="_on_close_grid_pressed"]

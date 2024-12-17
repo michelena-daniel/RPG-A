@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjycwhtj0b0xc"]
+
+[sub_resource type="GDScript" id="GDScript_lbov1"]
+script/source = "# res://scenes/Note.gd
+extends Node2D
+
+@export var speed: float = 200.0  # Pixels per second
+var target_y: float = 0.0
+var beat_interval: float = 1.0
+
+func initialize(_beat_interval: float, _target_y: float):
+	beat_interval = _beat_interval
+	target_y = _target_y
+
+func _physics_process(delta):
+	position.y += speed * delta
+	if position.y > target_y + 50:  # 50 pixels as the miss threshold
+		# Optionally, notify the RhythmGame about the miss
+		queue_free()
+
+func is_in_hit_window() -> bool:
+	return abs(position.y - target_y) <= 25  # 25 pixels as the hit window
+
+func hit():
+	print(\"Note hit!\")
+	# Add hit animations or sound effects here
+	queue_free()
+"
+
+[node name="Note" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+script = SubResource("GDScript_lbov1")

@@ -1,0 +1,146 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0q8700s47vxh"]
+
+[sub_resource type="GDScript" id="GDScript_24lu4"]
+script/source = "# res://scenes/RhythmGame.gd
+extends Node2D
+
+var Note = preload(\"res://scenes/Note.tscn\")
+
+@export var bpm: int = 120  # Beats per minute
+@export var desired_song_length: float = 60.0  # Duration of the rhythm game in seconds
+
+@onready var note_spawner: Node2D = $NoteSpawner
+@onready var notes_container: Node2D = $NotesContainer
+@onready var hit_area: Node2D = $HitArea
+@onready var score_label: Label = $UI/ScoreLabel
+@onready var feedback_label: Label = $UI/FeedbackLabel
+@onready var progress_bar: ProgressBar = $UI/ProgressBar
+
+var companion_to_capture: Companion  # Assigned externally
+var score: int = 0
+var total_notes: int = 0
+var notes_hit: int = 0
+var is_game_active: bool = false
+var beat_interval: float
+var song_start_time: float
+
+func _ready():
+	beat_interval = 60.0 / bpm
+	song_start_time = Engine.get_ticks_msec() / 1000.0
+	is_game_active = true
+	start_note_spawning()
+
+func start_note_spawning():
+	var timer = note_spawner.get_node(\"Timer\")
+	timer.wait_time = beat_interval
+	timer.connect(\"timeout\", Callable(self, \"_spawn_note\"))
+	timer.start()
+
+func _spawn_note():
+	var note = Note.instantiate()
+	notes_container.add_child(note)
+	note.position = note_spawner.position
+	note.initialize(beat_interval, hit_area.position.y)
+	total_notes += 1
+
+func _input(event):
+	if event.is_action_pressed(\"hit_note\") and is_game_active:
+		check_note_hit()
+
+func check_note_hit():
+	for note in notes_container.get_children():
+		if note.is_in_hit_window():
+			note.hit()
+			notes_hit += 1
+			update_score()
+			show_feedback(\"Hit!\")
+			return
+	# If no note was in the hit window
+	show_feedback(\"Miss!\")
+	register_miss()
+
+func update_score():
+	score += 100  # Points per hit
+	score_label.text = \"Score: %d\" % score
+
+func register_miss():
+	print(\"Missed!\")
+	# Optionally, implement penalties or tracking misses
+
+func show_feedback(text: String):
+	feedback_label.text = text
+	feedback_label.show()
+	# Hide the feedback after a short delay
+	await get_tree().create_timer(0.5).timeout
+	feedback_label.hide()
+
+func _process(delta):
+	if not is_game_active:
+		return
+	# Update song position
+	var current_time = Engine.get_ticks_msec() / 1000.0
+	var elapsed_time = current_time - song_start_time
+	# Update progress bar
+	progress_bar.value = clamp((elapsed_time / desired_song_length) * 100, 0, 100)
+	# Check if the rhythm game should end
+	if elapsed_time >= desired_song_length:
+		end_game()
+
+func end_game():
+	is_game_active = false
+	var accuracy = float(notes_hit) / float(total_notes) if total_notes > 0 else 0.0
+	if accuracy >= 0.8:
+		capture_companion()
+	else:
+		fail_to_capture()
+
+func capture_companion():
+	print(\"Companion captured:\", companion_to_capture.companionName)
+	GameState.add_companion(companion_to_capture)
+	cleanup_and_exit()
+
+func fail_to_capture():
+	print(\"Failed to capture the companion.\")
+	# Optionally, provide feedback to the player
+	cleanup_and_exit()
+
+func cleanup_and_exit():
+	# Resume the main game if it was paused
+	get_tree().paused = false
+	# Remove the RhythmGame instance
+	queue_free()
+	# Optionally, show or enable main game UI elements
+"
+
+[node name="RhytmGame" type="Node2D"]
+script = SubResource("GDScript_24lu4")
+bpm = null
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NoteSpawner" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="NoteSpawner"]
+
+[node name="Notes" type="Node2D" parent="."]
+
+[node name="HitArea" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InputHandler" type="Node" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
