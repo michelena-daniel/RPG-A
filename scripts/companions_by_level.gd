@@ -1,4 +1,4 @@
 extends Node
 
 
-var forest_companions = ['Cabanoir']
+var forest_companions = ['Cabanoir', 'Belceduck']

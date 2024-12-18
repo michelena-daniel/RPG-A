@@ -30,19 +30,6 @@ func _ready():
 	player_class_avatar.texture = class_image	
 	# Initialize HP and hearts
 	run_hp = run_hp  # This will trigger the setter and call `update_hearts`
-	
-	var factory = load("res://scripts/companions.gd").new()
-	StartCompanionSpawnLifeCycle(factory)
-
-func StartCompanionSpawnLifeCycle(factory):
-	#TODO select random companion from level where companion matches class
-	var companionToSpawn = factory.create_companion("Belceduck")
-	var gameplay_node = $VBoxContainer/Center/SubViewportContainer/SubViewport
-	
-	if companionToSpawn:
-		companionToSpawn.spawn_companion(gameplay_node)
-	else:
-		print("Failed to create companion")
  
 func lose_hp(hp_lost):
 	run_hp -= hp_lost  # Automatically triggers setter
