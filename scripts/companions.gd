@@ -4,12 +4,22 @@ var companions = {
 	"Cabanoir": {
 		"Level": 1,
 		"Type": "Magical",
-		"Strength": 3,
-		"Dexterity": 5,
-		"Magic": 8,
-		"Defense": 4,
+		"Strength": 1,
+		"Dexterity": 2,
+		"Magic": 5,
+		"Defense": 3,
 		"AvatarPath": "res://assets/pets/Cabanoir/CabanoirAvatar.png",
 		"SpritePath": "res://assets/pets/Cabanoir/CabanoirSprite128.png"
+	},
+	"Belceduck": {
+		"Level": 1,
+		"Type": "Dexterity",
+		"Strength": 2,
+		"Dexterity": 5,
+		"Magic": 2,
+		"Defense": 2,
+		"AvatarPath": "res://assets/pets/Belceduck/BelceduckAvatar.png",
+		"SpritePath": "res://assets/pets/Belceduck/BelceduckSprite123.png"
 	}
 }
 

@@ -36,11 +36,11 @@ func _ready():
 
 func StartCompanionSpawnLifeCycle(factory):
 	#TODO select random companion from level where companion matches class
-	var cabanoir = factory.create_companion("Cabanoir")
+	var companionToSpawn = factory.create_companion("Belceduck")
+	var gameplay_node = $VBoxContainer/Center/SubViewportContainer/SubViewport
 	
-	if cabanoir:
-		var gameplay_node = $VBoxContainer/Center/SubViewportContainer/SubViewport
-		cabanoir.spawn_companion(gameplay_node)
+	if companionToSpawn:
+		companionToSpawn.spawn_companion(gameplay_node)
 	else:
 		print("Failed to create companion")
  
