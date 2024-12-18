@@ -20,13 +20,9 @@ func _physics_process(delta):
 	if collision:
 		var collider = collision.get_collider()
 		if collider and collider is Companion:
-			GameState.add_companion(collider)
-			collider.queue_free()
-	#if collision:
-		#var collider = collision.get_collider()
-		#if collider and collider is Companion:
-			#print("Collided with companion: ", collider.companionName)
-			## Add the companion to the companion list
-			#PlayerData.add_companion(collider)
-			## Remove the companion from the scene
-			#collider.queue_free()
+			var isFull = GameState.find_first_empty_row(PlayerData.pets)
+			if isFull != -1:
+				GameState.add_companion(collider)
+				collider.queue_free()
+			else:
+				print("Companions full")

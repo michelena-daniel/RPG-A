@@ -29,7 +29,10 @@ func _init(companionName, level, type, strength, dexterity, magic, defense, avat
 func spawn_companion(scene_parent: Node):
 	scene_parent.add_child(self)
 	
-	position = Vector2(900, 1500)
+	randomize()
+	var x = randi_range(900, 2000)
+	var y = randi_range(800, 1500)
+	position = Vector2(x, y)
 
 	var sprite = Sprite2D.new()
 	sprite.texture = load(sprite_path)

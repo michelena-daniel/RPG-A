@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://rkaguymiiinb"]
+[gd_scene load_steps=35 format=3 uid="uid://rkaguymiiinb"]
 
 [ext_resource type="Theme" uid="uid://cqsyklancygo8" path="res://main_theme.tres" id="1_l1dx3"]
 [ext_resource type="Script" path="res://scripts/main_layout.gd" id="1_xnfee"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://scripts/Main-Camera2D.gd" id="16_am85w"]
 [ext_resource type="Script" path="res://scripts/Modals.gd" id="21_42g2v"]
 [ext_resource type="Script" path="res://scripts/TransitionOverlay.gd" id="22_c6m63"]
+[ext_resource type="Script" path="res://scripts/CompanionSpawnTimer.gd" id="23_ravqb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7sth"]
 bg_color = Color(0, 0, 0, 1)
@@ -195,7 +196,7 @@ offset_top = 10.0
 offset_right = 705.0
 offset_bottom = 1010.0
 
-[node name="SubViewport" type="SubViewport" parent="VBoxContainer/Center/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/Center/SubViewportContainer" groups=["port"]]
 disable_3d = true
 handle_input_locally = false
 size = Vector2i(690, 1000)
@@ -465,6 +466,10 @@ theme_override_font_sizes/font_size = 40
 text = "FOREST"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CompanionSpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+script = ExtResource("23_ravqb")
 
 [connection signal="pressed" from="VBoxContainer/BottomNav/Return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="VBoxContainer/BottomNav/Equipment" to="Modals" method="_on_grid_pressed" binds= ["equipment"]]
