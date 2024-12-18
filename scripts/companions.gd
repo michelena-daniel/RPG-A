@@ -1,4 +1,3 @@
-# File: CompanionFactory.gd
 const Companion = preload("res://scripts/companion.gd")
 
 var companions = {

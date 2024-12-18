@@ -32,6 +32,10 @@ func _ready():
 	run_hp = run_hp  # This will trigger the setter and call `update_hearts`
 	
 	var factory = load("res://scripts/companions.gd").new()
+	StartCompanionSpawnLifeCycle(factory)
+
+func StartCompanionSpawnLifeCycle(factory):
+	#TODO select random companion from level where companion matches class
 	var cabanoir = factory.create_companion("Cabanoir")
 	
 	if cabanoir:
@@ -39,7 +43,7 @@ func _ready():
 		cabanoir.spawn_companion(gameplay_node)
 	else:
 		print("Failed to create companion")
-
+ 
 func lose_hp(hp_lost):
 	run_hp -= hp_lost  # Automatically triggers setter
 
